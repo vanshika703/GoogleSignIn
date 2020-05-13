@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 const {OAuth2Client} = require('google-auth-library')
-const client = new OAuth2Client(523384873779)
+const client = new OAuth2Client(523384873779-75adpe7lmrvnue4d6ngr5dme4i0gn4ck.apps.googleusercontent.com)
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
@@ -14,8 +14,8 @@ app.get('/',(req,res) => {
 app.post('/gsignin', (req,res) => {
     async function verify() {
         const ticket = await client.verifyIdToken({
-            idToken : token,
-            audience : 523384873779
+            idToken : req.body.idtoken,
+            audience : 523384873779-75adpe7lmrvnue4d6ngr5dme4i0gn4ck.apps.googleusercontent.com
     })
     const payload = ticket.getPayload()
     const userid = payload['sub']
