@@ -17,6 +17,8 @@ app.post('/gsignin', (req,res) => {
             idToken : req.body.idtoken,
             audience : "523384873779-e29ttamvfnbfkhb650ppufoas5qmr328.apps.googleusercontent.com"
     })
+    let id = req.body.idtoken
+
     const payload = ticket.getPayload()
     const userid = payload['sub']
     }
